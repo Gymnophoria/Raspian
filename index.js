@@ -9,14 +9,15 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', member => {
 	let welcomeChannel = member.guild.channels.filter(channel => channel.type === 'text').find('name', 'welcome');
-	if (!welcomeChannel) return;
+	if (!welcomeChannel) return console.log('no welcome channel found');
 	
 	let ranksRole = member.guild.roles.find('name', 'Ranks');
+	if (!ranksRole) return console.log('no ranks role found');
 	
-	welcomeChannel.send({ embed: {
+	welcomeChannel.send(`Welcome ${member.toString()}!`, { embed: {
 		color: 0xffa500,
-		description: `Welcome ${member.toString()}! Please mention ${ranksRole.toString()} with your Overwatch mains and rank so we can give you the proper roles, thanks!`
-	}});
+		description: `Please mention ${ranksRole.toString()} with your Overwatch mains and rank so we can give you the proper roles, thanks!`
+	}}).catch(console.error);
 });
 
 client.login(config.token).catch(console.error);
