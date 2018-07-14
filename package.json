@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Gymnophoria/Raspian/issues"
   },
-  "homepage": "https://github.com/Gymnophoria/Raspian#readme"
+  "homepage": "https://github.com/Gymnophoria/Raspian#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
 }
